@@ -13,8 +13,17 @@ class GameScene: SKScene {
     
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
+    private var road: SKSpriteNode = SKSpriteNode(imageNamed: "road1")
+    private var playersCar = SKSpriteNode(imageNamed: "car0")
     
     override func didMove(to view: SKView) {
+        
+        self.addChild(road)
+        self.road.size = CGSize(width: 750, height: 1334)
+        
+        playersCar.size = CGSize(width: playersCar.size.width / 4,
+                                 height: playersCar.size.height / 4)
+        self.addChild(playersCar)
         
         // Get label node from scene and store it for use later
         self.label = self.childNode(withName: "//helloLabel") as? SKLabelNode
