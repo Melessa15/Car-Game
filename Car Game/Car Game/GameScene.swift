@@ -14,12 +14,17 @@ class GameScene: SKScene {
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     private var road: SKSpriteNode = SKSpriteNode(imageNamed: "road1")
+    private var road2: SKSpriteNode = SKSpriteNode(imageNamed: "road1")
+    
     private var playersCar = SKSpriteNode(imageNamed: "car0")
+    let height = CGFloat(1334)
+    let width = CGFloat(750)
+    let roadSpeed = 5.0
     
     override func didMove(to view: SKView) {
         
-        self.addChild(road)
-        self.road.size = CGSize(width: 750, height: 1334)
+        self.setup1stRoad()
+        self.setup2ndRoad()
         
         playersCar.size = CGSize(width: playersCar.size.width / 4,
                                  height: playersCar.size.height / 4)
@@ -44,6 +49,29 @@ class GameScene: SKScene {
                                               SKAction.fadeOut(withDuration: 0.5),
                                               SKAction.removeFromParent()]))
         }
+    }
+    
+    func setup1stRoad() {
+        self.addChild(road)
+        self.road.size = CGSize(width: self.width, height: self.height)
+        let action1 = SKAction.moveBy(x: 0, y: -self.height, duration: self.roadSpeed)
+        let action2 = SKAction.moveBy(x: 0, y: 2*self.height, duration: 0)
+        let action3 = SKAction.moveBy(x: 0, y: -self.height, duration: self.roadSpeed)
+        let sequence = SKAction.sequence([action1, action2, action3])
+        let repetition = SKAction.repeatForever(sequence)
+        self.road.run(repetition)
+    }
+    
+    func setup2ndRoad() {
+        self.addChild(road2)
+        
+        self.road2.size = CGSize(width: self.width, height: self.height)
+        let action1 = SKAction.moveBy(x: 0, y: self.height, duration: 0)
+        let action2 = SKAction.moveBy(x: 0, y: -2*self.height, duration: self.roadSpeed * 2)
+        let action3 = SKAction.moveBy(x: 0, y: self.height, duration: 0)
+        let sequence = SKAction.sequence([action1, action2, action3])
+        let repetition = SKAction.repeatForever(sequence)
+        self.road2.run(repetition)
     }
     
     
