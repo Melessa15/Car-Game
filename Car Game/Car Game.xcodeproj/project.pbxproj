@@ -17,6 +17,7 @@
 		573B90BE20658F3500214E1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 573B90BC20658F3500214E1C /* LaunchScreen.storyboard */; };
 		573B90C920658F3500214E1C /* Car_GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573B90C820658F3500214E1C /* Car_GameTests.swift */; };
 		573B90D420658F3500214E1C /* Car_GameUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 573B90D320658F3500214E1C /* Car_GameUITests.swift */; };
+		579222BE2066D354008E150E /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 579222BD2066D354008E150E /* GameOverScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		573B90CF20658F3500214E1C /* Car GameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Car GameUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		573B90D320658F3500214E1C /* Car_GameUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Car_GameUITests.swift; sourceTree = "<group>"; };
 		573B90D520658F3500214E1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		579222BD2066D354008E150E /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				573B90AF20658F3500214E1C /* GameScene.sks */,
 				573B90B120658F3500214E1C /* Actions.sks */,
 				573B90B320658F3500214E1C /* GameScene.swift */,
+				579222BD2066D354008E150E /* GameOverScene.swift */,
 				573B90B520658F3500214E1C /* GameViewController.swift */,
 				573B90B720658F3500214E1C /* Main.storyboard */,
 				573B90BA20658F3500214E1C /* Assets.xcassets */,
@@ -272,6 +275,7 @@
 			files = (
 				573B90B420658F3500214E1C /* GameScene.swift in Sources */,
 				573B90B620658F3500214E1C /* GameViewController.swift in Sources */,
+				579222BE2066D354008E150E /* GameOverScene.swift in Sources */,
 				573B90AE20658F3500214E1C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

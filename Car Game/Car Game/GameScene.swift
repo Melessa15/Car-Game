@@ -20,9 +20,10 @@ class GameScene: SKScene {
     let height = CGFloat(1334)
     let width = CGFloat(750)
     let roadSpeed = 5.0
-    var timer: Timer?
+    var timer: Timer? // Car timers
     var score = 0
     let scoreDisplay = SKLabelNode(text: "0")
+    var gameTimer: Timer?
     
     
     override func didMove(to view: SKView) {
@@ -49,6 +50,14 @@ class GameScene: SKScene {
         timer = Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { [weak self] (_) in
             self?.newCar()
         })
+        
+        self.gameTimer = Timer.scheduledTimer(withTimeInterval: 20, repeats: false) { (_) in
+            let gameOverScene = GameOverScene()
+            gameOverScene.size = self.size
+            gameOverScene.score = self.score
+            self.view?.presentScene(gameOverScene)
+            
+        }
     }
     
     func setup1stRoad() {
@@ -81,11 +90,13 @@ class GameScene: SKScene {
         let carType = arc4random() % 6 + 1
         let node = SKSpriteNode(imageNamed: "car\(carType)")
         node.name = "car"
-        let positionOffset = Int(arc4random()) % Int(self.width) - Int(self.width) / 2
+        let width = self.width - CGFloat(200)
+        let positionOffset = Int(arc4random()) % Int(width) - Int(width) / 2
         
         node.position = CGPoint(x: CGFloat(positionOffset), y: self.height / 2)
-        node.size = CGSize(width: 100, height: 200)
-        let action = SKAction.moveBy(x: 0, y: -(self.height + 100), duration: 3)
+        node.size = CGSize(width: 80, height: 160)
+        let duration = Double(arc4random() % 50 + 5) / 10.0
+        let action = SKAction.moveBy(x: 0, y: -(self.height + 100), duration: duration)
         let actionRemove = SKAction.removeFromParent()
         let sequence = SKAction.sequence([action, actionRemove])
         node.run(sequence)
@@ -93,7 +104,8 @@ class GameScene: SKScene {
         
         let physicsBody = SKPhysicsBody(rectangleOf: node.size)
         physicsBody.contactTestBitMask = 0x00000002
-        //physicsBody.pinned = true
+        physicsBody.restitution = 2
+
         physicsBody.allowsRotation = true
         
         node.physicsBody = physicsBody
