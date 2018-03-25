@@ -2,7 +2,7 @@
 //  GameScene.swift
 //  Car Game
 //
-//  Created by Profes Particulares on 23/03/2018.
+//  Created by 16084105 on 23/03/2018.
 //  Copyright © 2018 Herts university. All rights reserved.
 //
 
